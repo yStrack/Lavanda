@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:lavanda/activityScreen.dart';
 import 'package:lavanda/constants.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:lavanda/Model/categories.dart';
 import 'package:lavanda/Widgets/activityCard.dart';
 import 'package:lavanda/Widgets/cuidadosCard.dart';
 import 'package:lavanda/Widgets/clipper.dart';
+import 'package:lavanda/loginScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }
@@ -49,7 +51,14 @@ class HomePage extends StatelessWidget {
                 children: <Widget>[
                   Align(
                       alignment: Alignment.topLeft,
-                      child: SvgPicture.asset("assets/icons/menu.svg")),
+                      child: GestureDetector(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    ActivityScreen(
+                                        Category("Teste", "teste"))));
+                          },
+                          child: SvgPicture.asset("assets/icons/menu.svg"))),
                   SizedBox(height: 45),
                   Expanded(
                       child: Stack(children: <Widget>[

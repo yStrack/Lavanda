@@ -55,7 +55,9 @@ class _ActivityScreenState extends State<ActivityScreen> {
                           top: 40,
                           child: Text("Aprenda mais sobre a atividade!",
                               style: kLabelStyle.copyWith(
-                                  color: Colors.white, fontSize: 16)))
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w200)))
                     ]))
                   ],
                 ),

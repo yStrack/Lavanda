@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: LoginScreen(),
+      home: HomePage(),
     );
   }
 }
@@ -55,8 +55,8 @@ class HomePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    ActivityScreen(
-                                        Category("Teste", "teste"))));
+                                    ActivityScreen(Category(categories[0].name,
+                                        categories[0].image))));
                           },
                           child: SvgPicture.asset("assets/icons/menu.svg"))),
                   SizedBox(height: 45),

@@ -161,6 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
           Container(
+            padding: EdgeInsets.only(top: 60),
             height: double.infinity,
             child: SingleChildScrollView(
               physics: AlwaysScrollableScrollPhysics(),

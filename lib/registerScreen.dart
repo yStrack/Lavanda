@@ -46,7 +46,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Email",
+          'Email',
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -62,7 +62,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.email, color: Colors.white),
-                hintText: "Coloque seu email",
+                hintText: 'Coloque seu email',
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -75,7 +75,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Nome",
+          'Nome',
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -91,7 +91,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.person, color: Colors.white),
-                hintText: "Coloque seu nome",
+                hintText: 'Coloque seu nome',
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -104,7 +104,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Senha",
+          'Senha',
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -120,7 +120,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
-                hintText: "Coloque sua senha",
+                hintText: 'Coloque sua senha',
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -133,7 +133,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Confirmar Senha",
+          'Confirmar Senha',
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -149,7 +149,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
-                hintText: "Coloque sua senha",
+                hintText: 'Coloque sua senha',
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -164,7 +164,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          print("Register clicado");
+          print('Register clicado');
           if (!registerLoading &&
               _controllerPassword.text == _controllerConfirmPassword.text) {
             registerLoading = true;
@@ -174,16 +174,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
               registerLoading = false;
               MaterialPageRoute(builder: (context) => LoginScreen());
             } catch (error) {
-              print("ERROR: " + error);
+              print('ERROR: ' + error);
               registerLoading = false;
             }
           }
+          print('Register clicado');
         },
         padding: EdgeInsets.all(15.0),
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         color: Colors.white,
-        child: Text("Registrar",
+        child: Text('Registrar',
             style: TextStyle(
                 color: Color(0xFF527DAA),
                 letterSpacing: 1.5,
@@ -217,10 +218,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   backBT(),
-                  Text("Lavanda",
+                  Text('Lavanda',
                       style: TextStyle(
                           color: Colors.white,
-                          fontFamily: "Poppins",
+                          fontFamily: 'Poppins',
                           fontSize: 30,
                           fontWeight: FontWeight.bold)),
                   SizedBox(height: 20),

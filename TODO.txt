@@ -1,0 +1,16 @@
+TODO
+
+login e registro
+    Verificar campos estao preenchidos  
+    Verificar email valido
+    verificar senhas iguais
+    Verificar existe email
+Login
+    Salvar local usuario
+    Esqueci a senha
+
+Tela Generica de Informacoes
+    - Instrucoes de como Lavar as mãos com cada imagem (https://www.natura.com.br/blog/mais-natura/higiene-das-maos-importancia-e-passo-a-passo-da-forma-correta)
+    - Instrucoes de como escovar os dentes com cada imagem
+Pop-up tosse / espirro e mao no rosto (https://fametro.edu.br/2020/03/13/coronavirus-confira-informacoes-oficiais-e-formas-de-prevencao/)
+    - Clique duplo pra sair

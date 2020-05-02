@@ -9,6 +9,7 @@ Future<User> login(String email, String password) async {
   final response = await http.post(
     localPath + '/login',
     headers: <String, String>{
+      'Accept': 'application/json',
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(<String, String>{
@@ -33,6 +34,7 @@ Future<bool> register(String email, String password, String name) async {
   final response = await http.post(
     localPath + '/register',
     headers: <String, String>{
+      'Accept': 'application/json',
       'Content-Type': 'application/json; charset=UTF-8',
     },
     body: jsonEncode(<String, String>{

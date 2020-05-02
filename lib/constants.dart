@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const localPath = 'localhost:3333';
+const localPath = 'http://10.0.2.2:3333';
 
 // Colors
 const kBackgroundColor = Color(0xFFFEFEFE);

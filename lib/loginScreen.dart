@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Email",
+          'Email',
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.email, color: Colors.white),
-                hintText: "Coloque seu email",
+                hintText: 'Coloque seu email',
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          "Senha",
+          'Senha',
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -67,7 +67,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
-                hintText: "Coloque sua senha",
+                hintText: 'Coloque sua senha',
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   });
                 }),
           ),
-          Text("Lembrar", style: kLabelSmallStyle)
+          Text('Lembrar', style: kLabelSmallStyle)
         ],
       ),
     );
@@ -102,9 +102,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       alignment: Alignment.centerRight,
       child: FlatButton(
-          onPressed: () => print("Esqueceu a sennha clicado"),
+          onPressed: () => print('Esqueceu a sennha clicado'),
           child: Text(
-            "Esqueceu a senha?",
+            'Esqueceu a senha?',
             style: kLabelSmallStyle,
           )),
     );
@@ -117,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          print("Login clicado");
+          print('Login clicado');
           if (!loginLoading) {
             loginLoading = true;
             try {
@@ -125,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
               loginLoading = false;
               MaterialPageRoute(builder: (context) => HomePage());
             } catch (error) {
-              print("ERROR: " + error);
+              print('ERROR: ' + error);
               loginLoading = false;
             }
           }
@@ -134,7 +134,7 @@ class _LoginScreenState extends State<LoginScreen> {
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         color: Colors.white,
-        child: Text("Entrar",
+        child: Text('Entrar',
             style: TextStyle(
                 color: Color(0xFF527DAA),
                 letterSpacing: 1.5,
@@ -150,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          "Não possui uma conta?",
+          'Não possui uma conta?',
           style: TextStyle(
               height: 0,
               color: Colors.white,
@@ -165,7 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
               MaterialPageRoute(builder: (context) => RegisterScreen()),
             );
           },
-          child: Text("Crie uma",
+          child: Text('Crie uma',
               style: TextStyle(
                   height: 0,
                   color: Colors.white,
@@ -199,10 +199,10 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text("Lavanda",
+                  Text('Lavanda',
                       style: TextStyle(
                           color: Colors.white,
-                          fontFamily: "Poppins",
+                          fontFamily: 'Poppins',
                           fontSize: 30,
                           fontWeight: FontWeight.bold)),
                   SizedBox(height: 30),

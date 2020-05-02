@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Lavanda',
       theme: ThemeData(
           scaffoldBackgroundColor: kBackgroundColor,
-          fontFamily: "Poppins",
+          fontFamily: 'Poppins',
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
@@ -59,18 +59,18 @@ class HomePage extends StatelessWidget {
                                     ActivityScreen(Category(categories[0].name,
                                         categories[0].image))));
                           },
-                          child: SvgPicture.asset("assets/icons/menu.svg"))),
+                          child: SvgPicture.asset('assets/icons/menu.svg'))),
                   SizedBox(height: 45),
                   Expanded(
                       child: Stack(children: <Widget>[
                     Positioned(
                         left: 0,
-                        child: Text("Olá Emanuel,",
+                        child: Text('Olá Emanuel,',
                             style: kHeadingTextStyle.copyWith(
                                 color: Colors.white))),
                     Positioned(
                         top: 40,
-                        child: Text("A hora de se cuidar é agora!",
+                        child: Text('A hora de se cuidar é agora!',
                             style: kSubHeadingTextStyle.copyWith(
                                 color: Colors.white)))
                   ]))
@@ -83,7 +83,7 @@ class HomePage extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text(
-                  "Cuidados",
+                  'Cuidados',
                   style: kCuidadosTitleTextstyle,
                 )
               ],
@@ -97,18 +97,18 @@ class HomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   CuidadosCard(
-                    image: "assets/images/brush-teeth.png",
-                    title: "Mão no rosto",
+                    image: 'assets/images/brush-teeth.png',
+                    title: 'Mão no rosto',
                     isActive: true,
                   ),
                   CuidadosCard(
-                    image: "assets/images/brush-teeth.png",
-                    title: "Tossir",
+                    image: 'assets/images/brush-teeth.png',
+                    title: 'Tossir',
                     isActive: true,
                   ),
                   CuidadosCard(
-                    image: "assets/images/brush-teeth.png",
-                    title: "Espirrar",
+                    image: 'assets/images/brush-teeth.png',
+                    title: 'Espirrar',
                     isActive: true,
                   ),
                 ],
@@ -121,7 +121,7 @@ class HomePage extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text(
-                  "Atividades pessoais",
+                  'Atividades pessoais',
                   style: kCuidadosTitleTextstyle,
                 )
               ],

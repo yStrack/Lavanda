@@ -8,6 +8,7 @@ import 'package:lavanda/Widgets/activityCard.dart';
 import 'package:lavanda/Widgets/cuidadosCard.dart';
 import 'package:lavanda/Widgets/clipper.dart';
 import 'package:lavanda/loginScreen.dart';
+import 'package:lavanda/registerScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      home: HomePage(),
+      home: LoginScreen(),
     );
   }
 }

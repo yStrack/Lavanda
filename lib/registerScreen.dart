@@ -1,21 +1,45 @@
 import 'package:flutter/material.dart';
 import 'package:lavanda/Services/auth.service.dart';
 import 'package:lavanda/constants.dart';
-import 'package:lavanda/main.dart';
-import 'package:lavanda/registerScreen.dart';
+import 'package:lavanda/loginScreen.dart';
 
-class LoginScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerName = TextEditingController();
   final TextEditingController _controllerPassword = TextEditingController();
+  final TextEditingController _controllerConfirmPassword =
+      TextEditingController();
 
-  bool loginLoading = false;
+  bool registerLoading = false;
 
-  bool rememberMe = false;
+  Widget backBT() {
+    return Container(
+      width: double.infinity,
+      height: 25,
+      alignment: AlignmentDirectional(-1.0, 0.0),
+      child: Ink(
+        decoration: const ShapeDecoration(
+          color: Colors.lightBlue,
+          shape: CircleBorder(),
+        ),
+        child: IconButton(
+          icon: Icon(Icons.arrow_back_ios),
+          color: Colors.white,
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LoginScreen()),
+            );
+          },
+        ),
+      ),
+    );
+  }
 
   Widget emailTF() {
     return Column(
@@ -39,6 +63,35 @@ class _LoginScreenState extends State<LoginScreen> {
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.email, color: Colors.white),
                 hintText: "Coloque seu email",
+                hintStyle: kHintTextStyle),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget nameTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          "Nome",
+          style: kLabelBoldStyle,
+        ),
+        SizedBox(height: 10),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60,
+          child: TextField(
+            controller: _controllerName,
+            keyboardType: TextInputType.text,
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(Icons.person, color: Colors.white),
+                hintText: "Coloque seu nome",
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -75,58 +128,54 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget rememberMeBT() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Colors.white),
-            child: Checkbox(
-                value: rememberMe,
-                checkColor: kPrimary300Color,
-                activeColor: Colors.white,
-                onChanged: (value) {
-                  setState(() {
-                    rememberMe = value;
-                  });
-                }),
+  Widget confirmPasswordTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          "Confirmar Senha",
+          style: kLabelBoldStyle,
+        ),
+        SizedBox(height: 10),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60,
+          child: TextField(
+            controller: _controllerConfirmPassword,
+            obscureText: true,
+            style: TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14.0),
+                prefixIcon: Icon(Icons.lock, color: Colors.white),
+                hintText: "Coloque sua senha",
+                hintStyle: kHintTextStyle),
           ),
-          Text("Lembrar", style: kLabelSmallStyle)
-        ],
-      ),
+        )
+      ],
     );
   }
 
-  Widget forgotPassword() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-          onPressed: () => print("Esqueceu a sennha clicado"),
-          child: Text(
-            "Esqueceu a senha?",
-            style: kLabelSmallStyle,
-          )),
-    );
-  }
-
-  Widget loginBT() {
+  Widget registerBT() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
         onPressed: () {
-          print("Login clicado");
-          if (!loginLoading) {
-            loginLoading = true;
+          print("Register clicado");
+          if (!registerLoading &&
+              _controllerPassword.text == _controllerConfirmPassword.text) {
+            registerLoading = true;
             try {
-              login(_controllerEmail.text, _controllerPassword.text);
-              loginLoading = false;
-              MaterialPageRoute(builder: (context) => HomePage());
+              register(_controllerEmail.text, _controllerPassword.text,
+                  _controllerName.text);
+              registerLoading = false;
+              MaterialPageRoute(builder: (context) => LoginScreen());
             } catch (error) {
               print("ERROR: " + error);
-              loginLoading = false;
+              registerLoading = false;
             }
           }
         },
@@ -134,7 +183,7 @@ class _LoginScreenState extends State<LoginScreen> {
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
         color: Colors.white,
-        child: Text("Entrar",
+        child: Text("Registrar",
             style: TextStyle(
                 color: Color(0xFF527DAA),
                 letterSpacing: 1.5,
@@ -142,38 +191,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Poppins')),
       ),
-    );
-  }
-
-  Widget signInBT() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          "Não possui uma conta?",
-          style: TextStyle(
-              height: 0,
-              color: Colors.white,
-              fontFamily: 'Poppins',
-              fontSize: 18.0,
-              fontWeight: FontWeight.w400),
-        ),
-        FlatButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => RegisterScreen()),
-            );
-          },
-          child: Text("Crie uma",
-              style: TextStyle(
-                  height: 0,
-                  color: Colors.white,
-                  fontFamily: 'Poppins',
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold)),
-        )
-      ],
     );
   }
 
@@ -199,26 +216,23 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  backBT(),
                   Text("Lavanda",
                       style: TextStyle(
                           color: Colors.white,
                           fontFamily: "Poppins",
                           fontSize: 30,
                           fontWeight: FontWeight.bold)),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
                   emailTF(),
-                  SizedBox(height: 30),
+                  SizedBox(height: 20),
+                  nameTF(),
+                  SizedBox(height: 20),
                   passwordTF(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      rememberMeBT(),
-                      forgotPassword(),
-                    ],
-                  ),
-                  loginBT(),
-                  SizedBox(height: 10),
-                  signInBT(),
+                  SizedBox(height: 20),
+                  confirmPasswordTF(),
+                  SizedBox(height: 20),
+                  registerBT(),
                 ],
               ),
             ),

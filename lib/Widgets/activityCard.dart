@@ -21,7 +21,7 @@ class ActivityCard extends StatelessWidget {
           gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
-              colors: [Color(0xFF3383CD), Color(0xFF11249F)]),
+              colors: [kPrimary300Color, kPrimary400Color]),
           boxShadow: [
             BoxShadow(
                 offset: Offset(0, 8), blurRadius: 20, color: kTextLightColor)

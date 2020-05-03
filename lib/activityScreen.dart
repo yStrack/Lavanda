@@ -7,7 +7,8 @@ import 'Widgets/clipper.dart';
 
 class ActivityScreen extends StatefulWidget {
   final Category category;
-  ActivityScreen(this.category);
+  final String username;
+  ActivityScreen(this.category, this.username);
 
   @override
   _ActivityScreenState createState() => _ActivityScreenState();
@@ -30,17 +31,17 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     gradient: LinearGradient(
                         begin: Alignment.topRight,
                         end: Alignment.bottomLeft,
-                        colors: [Color(0xFF3383CD), Color(0xFF11249F)])),
+                        colors: [kPrimary300Color, kPrimary400Color])),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Align(
                         alignment: Alignment.topLeft,
                         child: GestureDetector(
-                            onTap: () {
+                            onDoubleTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      HomePage()));
+                                      HomePage("${widget.username}")));
                             },
                             child: SvgPicture.asset("assets/icons/menu.svg"))),
                     SizedBox(height: 45),

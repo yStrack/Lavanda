@@ -7,7 +7,7 @@ import 'package:lavanda/Model/user.dart';
 
 Future<User> login(String email, String password) async {
   final response = await http.post(
-    localPath + '/login',
+    urlPath + '/login',
     headers: <String, String>{
       'Accept': 'application/json',
       'Content-Type': 'application/json; charset=UTF-8',
@@ -20,6 +20,7 @@ Future<User> login(String email, String password) async {
 
   if (response.statusCode == 200) {
     // Se o registro funcionou, cria o usuario local.
+    print("Status code 200");
     return User(
         email: email,
         password: password,
@@ -32,7 +33,7 @@ Future<User> login(String email, String password) async {
 
 Future<bool> register(String email, String password, String name) async {
   final response = await http.post(
-    localPath + '/register',
+    urlPath + '/register',
     headers: <String, String>{
       'Accept': 'application/json',
       'Content-Type': 'application/json; charset=UTF-8',

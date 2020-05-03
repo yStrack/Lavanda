@@ -30,7 +30,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  final String username;
+
+  HomePage(this.username);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +55,7 @@ class HomePage extends StatelessWidget {
                   gradient: LinearGradient(
                       begin: Alignment.topRight,
                       end: Alignment.bottomLeft,
-                      colors: [Color(0xFF3383CD), Color(0xFF11249F)])),
+                      colors: [kPrimary300Color, kPrimary400Color])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -56,8 +65,10 @@ class HomePage extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
                                 builder: (BuildContext context) =>
-                                    ActivityScreen(Category(categories[0].name,
-                                        categories[0].image))));
+                                    ActivityScreen(
+                                        Category(categories[0].name,
+                                            categories[0].image),
+                                        "${widget.username}")));
                           },
                           child: SvgPicture.asset('assets/icons/menu.svg'))),
                   SizedBox(height: 45),
@@ -65,7 +76,7 @@ class HomePage extends StatelessWidget {
                       child: Stack(children: <Widget>[
                     Positioned(
                         left: 0,
-                        child: Text('Olá Emanuel,',
+                        child: Text('Olá ${widget.username},',
                             style: kHeadingTextStyle.copyWith(
                                 color: Colors.white))),
                     Positioned(

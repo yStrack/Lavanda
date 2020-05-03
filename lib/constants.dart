@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const localPath = 'http://10.0.2.2:3333';
+// const localPath = 'http://:3333'; // não usamos mais
+const urlPath = 'https://lavanda-backend.herokuapp.com';
 
 // Colors
 const kBackgroundColor = Color(0xFFFEFEFE);

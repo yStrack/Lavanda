@@ -4,6 +4,9 @@ import 'package:lavanda/constants.dart';
 import 'package:lavanda/main.dart';
 import 'package:lavanda/registerScreen.dart';
 
+import 'Model/user.dart';
+import 'Widgets/progress.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   _LoginScreenState createState() => _LoginScreenState();
@@ -116,17 +119,29 @@ class _LoginScreenState extends State<LoginScreen> {
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () {
+        onPressed: () async {
           print('Login clicado');
           if (!loginLoading) {
-            loginLoading = true;
+            setState(() {
+              loginLoading = true;
+            });
             try {
-              login(_controllerEmail.text, _controllerPassword.text);
-              loginLoading = false;
-              MaterialPageRoute(builder: (context) => HomePage());
+              // print(_controllerEmail.text);
+              // print(_controllerPassword.text);
+              User user =
+                  await login(_controllerEmail.text, _controllerPassword.text);
+              setState(() {
+                loginLoading = true;
+              });
+              print(user.name);
+              print(user.email);
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => HomePage(user.name)));
             } catch (error) {
-              print('ERROR: ' + error);
-              loginLoading = false;
+              print(error);
+              setState(() {
+                loginLoading = true;
+              });
             }
           }
         },
@@ -180,50 +195,55 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: double.infinity,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [kPrimary200Color, kPrimary400Color]),
-            ),
-          ),
-          Center(
-            child: SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsets.fromLTRB(35, 50, 35, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text('Lavanda',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold)),
-                  SizedBox(height: 30),
-                  emailTF(),
-                  SizedBox(height: 30),
-                  passwordTF(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      rememberMeBT(),
-                      forgotPassword(),
-                    ],
-                  ),
-                  loginBT(),
-                  SizedBox(height: 10),
-                  signInBT(),
-                ],
+      body: ProgressHUD(
+        inAsyncCall: loginLoading,
+        opacity: 0.5,
+        valueColor: new AlwaysStoppedAnimation<Color>(kPrimary400Color),
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [kPrimary200Color, kPrimary400Color]),
               ),
             ),
-          ),
-        ],
+            Center(
+              child: SingleChildScrollView(
+                physics: AlwaysScrollableScrollPhysics(),
+                padding: EdgeInsets.fromLTRB(35, 50, 35, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('Lavanda',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Poppins',
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold)),
+                    SizedBox(height: 30),
+                    emailTF(),
+                    SizedBox(height: 30),
+                    passwordTF(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        rememberMeBT(),
+                        forgotPassword(),
+                      ],
+                    ),
+                    loginBT(),
+                    SizedBox(height: 10),
+                    signInBT(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

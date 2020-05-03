@@ -78,22 +78,203 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     ),
                     SizedBox(height: 10),
                     Column(
-                      children: categories
-                          .map(
-                            (item) => Card(
-                              child: ListTile(
-                                leading: FlutterLogo(size: 56.0),
-                                title: Text('Nome do procedimento X',
-                                    style: kTitleTextstyle.copyWith(
-                                        fontFamily: 'Poppins', fontSize: 16)),
-                                subtitle: Text(
-                                  'Descricao de como fazer',
-                                  style: TextStyle(fontFamily: 'Poppins'),
-                                ),
-                              ),
+                      children: <Widget>[
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-01.png",
+                              height: 100,
                             ),
-                          )
-                          .toList(),
+                            title: Text('Molhe as mãos com água',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              '',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-02.png",
+                              height: 100,
+                            ),
+                            title: Text('Espalhe o sabonete',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Passe o sabonete por toda a superfície da mão',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-03.png",
+                              height: 100,
+                            ),
+                            title: Text('Ensaboar',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Ensaboe as palmas das mãos friccionando-as entre si',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-04.png",
+                              height: 100,
+                            ),
+                            title: Text('Esfregar',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Esfregue a palma da mão direita contra o dorso da mão esquerda, entrelaçando os dedos',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-05.png",
+                              height: 100,
+                            ),
+                            title: Text('Esfregar outra mão',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Repita o processo anterior com a mão esquerda contra o dorso da mão direita',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-06.png",
+                              height: 100,
+                            ),
+                            title: Text('Entre os dedos',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Entrelace os dedos e friccione os espaços entre eles',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-07.png",
+                              height: 100,
+                            ),
+                            title: Text('Ponta dos dedos',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Esfregue o dorso dos dedos de uma mão com a palma da mão oposta (e vice-versa), segurando os dedos, com movimento de vai-e-vem',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-08.png",
+                              height: 100,
+                            ),
+                            title: Text('Polegares',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Esfregue os polegares com o auxílio da palma da mão oposta, utilizando movimento circular',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-09.png",
+                              height: 100,
+                            ),
+                            title: Text('Concha',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Friccione as polpas digitais e unhas de uma mão contra a palma da mão oposta, fechada em concha e fazendo movimento circular',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-10.png",
+                              height: 100,
+                            ),
+                            title: Text('Exague',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Enxágue primeiro os punhos',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-11.png",
+                              height: 100,
+                            ),
+                            title: Text('Exague',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Enxágue, agora, as mãos, evitando contato direto da mão ensaboada com a torneira (procure usar os cotovelos na hora de abrir)',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-12.png",
+                              height: 100,
+                            ),
+                            title: Text('Secagem',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Seque-as com uma tolha de papel descartável ou de uso único quando estiver em casa',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                        Card(
+                          child: ListTile(
+                            leading: Image.asset(
+                              "assets/images/maos-13.png",
+                              height: 100,
+                            ),
+                            title: Text('Fechando a torneira',
+                                style: kTitleTextstyle.copyWith(
+                                    fontFamily: 'Poppins', fontSize: 16)),
+                            subtitle: Text(
+                              'Use a toalha de papel para fechar a torneira. Pronto! Agora suas mãos estão seguras',
+                              style: TextStyle(fontFamily: 'Poppins'),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ))

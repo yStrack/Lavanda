@@ -19,8 +19,8 @@ List<Category> categories = categoriesData
     .toList();
 
 var categoriesData = [
-  {"name": "Lavar as mãos", 'image': "assets/images/wash-hands.png"},
-  {"name": "Escovar os dentes", 'image': "assets/images/brush-teeth.png"},
+  {"name": "Lavar as mãos", 'image': "assets/images/maos-01.png"},
+  {"name": "Escovar os dentes", 'image': "assets/images/aglomeracao.png"},
 ];
 
 var proceduresData = [];

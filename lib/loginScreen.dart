@@ -151,7 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
         color: Colors.white,
         child: Text('Entrar',
             style: TextStyle(
-                color: Color(0xFF527DAA),
+                color: kPrimary300Color,
                 letterSpacing: 1.5,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

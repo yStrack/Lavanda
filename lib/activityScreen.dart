@@ -41,7 +41,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                             onDoubleTap: () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      HomePage("${widget.username}")));
+                                      HomePage(widget.username)));
                             },
                             child: SvgPicture.asset("assets/icons/menu.svg"))),
                     SizedBox(height: 45),

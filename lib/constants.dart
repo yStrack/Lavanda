@@ -16,7 +16,7 @@ const kPrimary300Color = Color(0xFF9E54FC);
 const kPrimary200Color = Color(0xFFBB86FC);
 const kPrimary100Color = Color(0xFFD7B7FD);
 const kPrimary50Color = Color(0xFFF2E7FE);
-final kShadowColor = Color(0xFFB7B7B7).withOpacity(.16);
+final kShadowColor = Color(0xFFB7B7B7).withOpacity(.50);
 final kActiveShadowColor = Color(0xFFBB86FC).withOpacity(.15);
 
 // Text Style

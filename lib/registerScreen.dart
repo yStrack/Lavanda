@@ -172,7 +172,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               register(_controllerEmail.text, _controllerPassword.text,
                   _controllerName.text);
               registerLoading = false;
-              MaterialPageRoute(builder: (context) => LoginScreen());
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (BuildContext context) => LoginScreen()));
             } catch (error) {
               print('ERROR: ' + error);
               registerLoading = false;
@@ -186,7 +187,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         color: Colors.white,
         child: Text('Registrar',
             style: TextStyle(
-                color: Color(0xFF527DAA),
+                color: kPrimary300Color,
                 letterSpacing: 1.5,
                 fontSize: 18,
                 fontWeight: FontWeight.bold,

@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
           ClipPath(
             clipper: MyClipper(),
             child: Container(
-              padding: EdgeInsets.only(left: 20, top: 60, right: 40),
+              padding: EdgeInsets.only(left: 20, top: 60, right: 20),
               height: 300,
               width: double.infinity,
               decoration: BoxDecoration(
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                                     ActivityScreen(
                                         Category(categories[0].name,
                                             categories[0].image),
-                                        "${widget.username}")));
+                                        widget.username)));
                           },
                           child: SvgPicture.asset('assets/icons/menu.svg'))),
                   SizedBox(height: 45),
@@ -101,27 +101,36 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(left: 20, right: 20),
+            padding: EdgeInsets.symmetric(horizontal: 20),
             child: Container(
-              height: 131,
+              // height: 131,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  CuidadosCard(
-                    image: 'assets/images/brush-teeth.png',
-                    title: 'Mão no rosto',
-                    isActive: true,
-                  ),
-                  CuidadosCard(
-                    image: 'assets/images/brush-teeth.png',
-                    title: 'Tossir',
-                    isActive: true,
-                  ),
-                  CuidadosCard(
-                    image: 'assets/images/brush-teeth.png',
-                    title: 'Espirrar',
-                    isActive: true,
-                  ),
+                  Expanded(
+                      child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: CuidadosCard(
+                            image: 'assets/images/tosse.png',
+                            title: '',
+                            isActive: true,
+                          ))),
+                  Expanded(
+                      child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: CuidadosCard(
+                            image: 'assets/images/aglomeracao.png',
+                            title: '',
+                            isActive: true,
+                          ))),
+                  Expanded(
+                      child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10),
+                          child: CuidadosCard(
+                            image: 'assets/images/rosto.png',
+                            title: '',
+                            isActive: true,
+                          ))),
                 ],
               ),
             ),
@@ -138,25 +147,26 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(left: 20, right: 20),
-              child: StaggeredGridView.countBuilder(
-                padding: EdgeInsets.all(0),
-                crossAxisCount: 2,
-                itemCount: categories.length,
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 20,
-                itemBuilder: (context, index) {
-                  return ActivityCard(
-                    image: categories[index].image,
-                    name: categories[index].name,
-                  );
-                },
-                staggeredTileBuilder: (index) => StaggeredTile.fit(1),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Container(
+              // height: 131,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  for (var item in categories)
+                    Expanded(
+                        child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: ActivityCard(
+                              image: item.image,
+                              name: '',
+                              // isActive: true,
+                            ))),
+                ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

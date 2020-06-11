@@ -1,8 +1,18 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:camera/camera.dart';
+
+import 'package:path/path.dart' show join;
+import 'package:path_provider/path_provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import 'package:lavanda/activityScreen.dart';
 import 'package:lavanda/constants.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:lavanda/Shared/camera.dart';
 import 'package:lavanda/Model/categories.dart';
 import 'package:lavanda/Widgets/activityCard.dart';
 import 'package:lavanda/Widgets/cuidadosCard.dart';
@@ -10,7 +20,23 @@ import 'package:lavanda/Widgets/clipper.dart';
 import 'package:lavanda/loginScreen.dart';
 import 'package:lavanda/registerScreen.dart';
 
-void main() => runApp(MyApp());
+CameraDescription camera;
+
+Future<void> main() async {
+  // Ensure that plugin services are initialized so that `availableCameras()`
+  // can be called before `runApp()`
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Obtain a list of the available cameras on the device.
+  final cameras = await availableCameras();
+
+  // Get a specific camera from the list of available cameras.
+  camera = cameras.last;
+
+  runApp(MyApp());
+}
+
+// void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -64,11 +90,12 @@ class _HomePageState extends State<HomePage> {
                       child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    ActivityScreen(
-                                        Category(categories[0].name,
-                                            categories[0].image),
-                                        widget.username)));
+                              builder: (BuildContext context) =>
+                                  TakePictureScreen(
+                                // Pass the appropriate camera to the TakePictureScreen widget.
+                                camera: camera,
+                              ),
+                            ));
                           },
                           child: SvgPicture.asset('assets/icons/menu.svg'))),
                   SizedBox(height: 45),

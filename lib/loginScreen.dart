@@ -229,6 +229,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     _controllerPassword.text);
 
                                 if (provider.isReady == true) {
+                                  user = provider.user;
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           HomePage(provider.user.name)));

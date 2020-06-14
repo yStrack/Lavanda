@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:lavanda/Services/profile.service.dart';
+import 'package:lavanda/constants.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
@@ -50,7 +51,7 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Take a picture')),
+      appBar: AppBar(title: Text('Tire uma foto para o perfil')),
       // Wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner
       // until the controller has finished initializing.
@@ -114,15 +115,22 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text('Display the Picture')),
+        appBar: AppBar(title: Text('Quer salvar a foto?')),
         // The image is stored as a file on the device. Use the `Image.file`
         // constructor with the given path to display the image.
-        body: Image.file(File(imagePath)),
+        body: Center(child: Container(child: Image.file(File(imagePath)))),
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.save),
           // Provide an onPressed callback.
           onPressed: () async {
-            updateProfile('a', 'a', File(imagePath));
+            if (await updateProfile(
+                user.email, user.password, File(imagePath))) {
+              // Volta pra tela de perfil
+              Navigator.pop(context);
+              Navigator.pop(context);
+            } else {
+              // Erro ao salvar imagem
+            }
           },
         ));
   }

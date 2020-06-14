@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:lavanda/Model/categories.dart';
 import 'package:lavanda/constants.dart';
-import 'package:lavanda/main.dart';
 import 'Widgets/clipper.dart';
 
 class ActivityScreen extends StatefulWidget {
@@ -18,33 +16,33 @@ class _ActivityScreenState extends State<ActivityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [kPrimary300Color, kPrimary400Color])),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
             ClipPath(
               clipper: MyClipper(),
               child: Container(
-                padding: EdgeInsets.only(left: 20, top: 60, right: 40),
-                height: 300,
+                padding: EdgeInsets.only(left: 20, top: 20, right: 40),
+                height: 200,
                 width: double.infinity,
                 decoration: BoxDecoration(
                     gradient: LinearGradient(
-                        begin: Alignment.topRight,
-                        end: Alignment.bottomLeft,
-                        colors: [kPrimary300Color, kPrimary400Color])),
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [kPrimary400Color, kPrimary300Color])),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Align(
-                        alignment: Alignment.topLeft,
-                        child: GestureDetector(
-                            onDoubleTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (BuildContext context) =>
-                                      HomePage(widget.username)));
-                            },
-                            child: SvgPicture.asset("assets/icons/menu.svg"))),
-                    SizedBox(height: 45),
                     Expanded(
                         child: Stack(children: <Widget>[
                       Positioned(

@@ -1,7 +1,10 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 // const localPath = 'http://:3333'; // não usamos mais
 const urlPath = 'https://lavanda-backend.herokuapp.com';
+
+CameraDescription camera;
 
 // Colors
 const kBackgroundColor = Color(0xFFFEFEFE);

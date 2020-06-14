@@ -1,42 +1,32 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:camera/camera.dart';
 
-import 'package:path/path.dart' show join;
-import 'package:path_provider/path_provider.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-import 'package:lavanda/activityScreen.dart';
 import 'package:lavanda/constants.dart';
-import 'package:lavanda/Shared/camera.dart';
 import 'package:lavanda/Model/categories.dart';
+import 'package:lavanda/loginScreen.dart';
 import 'package:lavanda/Widgets/activityCard.dart';
 import 'package:lavanda/Widgets/cuidadosCard.dart';
 import 'package:lavanda/Widgets/clipper.dart';
-import 'package:lavanda/loginScreen.dart';
-import 'package:lavanda/registerScreen.dart';
+import 'package:lavanda/Widgets/profileDrawer.dart';
 
-CameraDescription camera;
+Future<void> main() async {
+  // Ensure that plugin services are initialized so that `availableCameras()`
+  // can be called before `runApp()`
+  WidgetsFlutterBinding.ensureInitialized();
 
-// Future<void> main() async {
-//   // Ensure that plugin services are initialized so that `availableCameras()`
-//   // can be called before `runApp()`
-//   WidgetsFlutterBinding.ensureInitialized();
+  // Obtain a list of the available cameras on the device.
+  final cameras = await availableCameras();
 
-//   // Obtain a list of the available cameras on the device.
-//   final cameras = await availableCameras();
+  // Get a specific camera from the list of available cameras.
+  camera = cameras.last;
 
-//   // Get a specific camera from the list of available cameras.
-//   camera = cameras.last;
+  runApp(MyApp());
+}
 
-//   runApp(MyApp());
-// }
-
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -46,6 +36,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Lavanda',
       theme: ThemeData(
+          primaryColor: kPrimary300Color,
+          accentColor: kPrimary400Color,
           scaffoldBackgroundColor: kBackgroundColor,
           fontFamily: 'Poppins',
           textTheme: TextTheme(
@@ -69,36 +61,33 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [kPrimary300Color, kPrimary400Color])),
+        ),
+      ),
+      drawer: ProfileDrawer(name: widget.username),
       body: Column(
         children: <Widget>[
           ClipPath(
             clipper: MyClipper(),
             child: Container(
-              padding: EdgeInsets.only(left: 20, top: 60, right: 20),
-              height: 300,
+              padding: EdgeInsets.only(left: 20, top: 20, right: 20),
+              height: 200,
               width: double.infinity,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [kPrimary300Color, kPrimary400Color])),
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [kPrimary400Color, kPrimary300Color])),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: GestureDetector(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  TakePictureScreen(
-                                // Pass the appropriate camera to the TakePictureScreen widget.
-                                camera: camera,
-                              ),
-                            ));
-                          },
-                          child: SvgPicture.asset('assets/icons/menu.svg'))),
-                  SizedBox(height: 45),
                   Expanded(
                       child: Stack(children: <Widget>[
                     Positioned(

@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:lavanda/Services/profile.service.dart';
 import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 
@@ -113,10 +114,16 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Display the Picture')),
-      // The image is stored as a file on the device. Use the `Image.file`
-      // constructor with the given path to display the image.
-      body: Image.file(File(imagePath)),
-    );
+        appBar: AppBar(title: Text('Display the Picture')),
+        // The image is stored as a file on the device. Use the `Image.file`
+        // constructor with the given path to display the image.
+        body: Image.file(File(imagePath)),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.save),
+          // Provide an onPressed callback.
+          onPressed: () async {
+            updateProfile('a', 'a', File(imagePath));
+          },
+        ));
   }
 }

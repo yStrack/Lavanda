@@ -3,8 +3,10 @@ import 'package:lavanda/Services/auth.service.dart';
 import 'package:lavanda/constants.dart';
 import 'package:lavanda/main.dart';
 import 'package:lavanda/registerScreen.dart';
+import 'package:provider/provider.dart';
 
 import 'Model/user.dart';
+import 'Services/userProvider.dart';
 import 'Widgets/progress.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -121,29 +123,6 @@ class _LoginScreenState extends State<LoginScreen> {
         elevation: 5.0,
         onPressed: () async {
           print('Login clicado');
-          if (!loginLoading) {
-            setState(() {
-              loginLoading = true;
-            });
-            try {
-              // print(_controllerEmail.text);
-              // print(_controllerPassword.text);
-              User user =
-                  await login(_controllerEmail.text, _controllerPassword.text);
-              setState(() {
-                loginLoading = true;
-              });
-              print(user.name);
-              print(user.email);
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(user.name)));
-            } catch (error) {
-              print(error);
-              setState(() {
-                loginLoading = true;
-              });
-            }
-          }
         },
         padding: EdgeInsets.all(15.0),
         shape:
@@ -194,55 +173,90 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ProgressHUD(
-        inAsyncCall: loginLoading,
-        opacity: 0.5,
-        valueColor: new AlwaysStoppedAnimation<Color>(kPrimary400Color),
-        child: Stack(
-          children: <Widget>[
-            Container(
-              height: double.infinity,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [kPrimary200Color, kPrimary400Color]),
-              ),
-            ),
-            Center(
-              child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
-                padding: EdgeInsets.fromLTRB(35, 50, 35, 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text('Lavanda',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Poppins',
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold)),
-                    SizedBox(height: 30),
-                    emailTF(),
-                    SizedBox(height: 30),
-                    passwordTF(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        rememberMeBT(),
-                        forgotPassword(),
-                      ],
+    return ChangeNotifierProvider<UserProvider>(
+      create: (context) => UserProvider(),
+      child: Builder(
+        builder: (context) => Scaffold(
+          body: Consumer<UserProvider>(
+            builder: (context, provider, child) => ProgressHUD(
+              inAsyncCall: provider.status,
+              opacity: 0.5,
+              valueColor: new AlwaysStoppedAnimation<Color>(kPrimary400Color),
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    height: double.infinity,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [kPrimary200Color, kPrimary400Color]),
                     ),
-                    loginBT(),
-                    SizedBox(height: 10),
-                    signInBT(),
-                  ],
-                ),
+                  ),
+                  Center(
+                    child: SingleChildScrollView(
+                      physics: AlwaysScrollableScrollPhysics(),
+                      padding: EdgeInsets.fromLTRB(35, 50, 35, 0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text('Lavanda',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.bold)),
+                          SizedBox(height: 30),
+                          emailTF(),
+                          SizedBox(height: 30),
+                          passwordTF(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              rememberMeBT(),
+                              forgotPassword(),
+                            ],
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(vertical: 25.0),
+                            width: double.infinity,
+                            child: RaisedButton(
+                              elevation: 5.0,
+                              onPressed: () async {
+                                print('Login clicado');
+                                await provider.checkUser(_controllerEmail.text,
+                                    _controllerPassword.text);
+
+                                if (provider.isReady == true) {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          HomePage(provider.user.name)));
+                                }
+                              },
+                              padding: EdgeInsets.all(15.0),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0)),
+                              color: Colors.white,
+                              child: Text('Entrar',
+                                  style: TextStyle(
+                                      color: kPrimary300Color,
+                                      letterSpacing: 1.5,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'Poppins')),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          signInBT(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );

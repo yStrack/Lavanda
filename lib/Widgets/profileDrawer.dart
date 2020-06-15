@@ -60,17 +60,45 @@ class ProfileDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.message),
-            title: Text('Messages'),
-          ),
-          ListTile(
             leading: Icon(Icons.account_circle),
-            title: Text('Outro'),
+            title: Text('Nome',
+                style: kTitleTextstyle.copyWith(
+                    fontFamily: 'Poppins', fontSize: 16)),
+            subtitle: Text(
+              '${user.name}',
+              style: TextStyle(fontFamily: 'Poppins'),
+            ),
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
+            leading: Icon(Icons.mail),
+            title: Text('Email',
+                style: kTitleTextstyle.copyWith(
+                    fontFamily: 'Poppins', fontSize: 16)),
+            subtitle: Text(
+              '${user.email}',
+              style: TextStyle(fontFamily: 'Poppins'),
+            ),
           ),
+          ListTile(
+            leading: Icon(Icons.lock),
+            title: Text('Senha',
+                style: kTitleTextstyle.copyWith(
+                    fontFamily: 'Poppins', fontSize: 16)),
+            subtitle: Text(
+              '****',
+              style: TextStyle(fontFamily: 'Poppins'),
+            ),
+          ),
+          ListTile(
+              leading: Icon(Icons.location_on),
+              title: Text('Localização',
+                  style: kTitleTextstyle.copyWith(
+                      fontFamily: 'Poppins', fontSize: 16)),
+              subtitle: Text(
+                'Sua residência',
+                style: TextStyle(fontFamily: 'Poppins'),
+              ),
+              trailing: Icon(Icons.edit)),
         ],
       ),
     );

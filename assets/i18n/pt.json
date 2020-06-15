@@ -1,0 +1,104 @@
+{
+    "label": {
+        "hello": "Olá",
+        "timeToTakeCareIsNow": "A hora de se cuidar é agora!",
+        "personalActivities": "Atividades pessoais",
+        "cares": "Cuidados",
+        "rememberMe": "Lembrar",
+        "takeProfilePicture": "Tire uma foto para o perfil",
+        "wantSavePicture": "Quer salvar a foto?",
+        "learnMore": "Aprenda mais sobre a atividade!",
+        "dontHaveAccount": "Não possui uma conta?"
+    },
+    "profile": {
+        "name": {
+            "title": "Nome",
+            "tooltip": "Coloque seu nome"
+        },
+        "email": {
+            "title": "Email",
+            "tooltip": "Coloque seu email"
+        },
+        "password": {
+            "title": "Senha",
+            "tooltip": "Coloque seu senha"
+        },
+        "confirmPassword": {
+            "title": "Confirmar Senha",
+            "tooltip": "Coloque seu senha"
+        },
+        "location": {
+            "title": "Localização",
+            "tooltip": "Sua residência"
+        }
+    },
+    "button": {
+        "register": "Registrar",
+        "signUp": "Crie uma",
+        "signIn": "Entrar",
+        "forgetPassword": "Esqueceu a senha?"
+    },
+    "activities": {
+        "washHands": {
+            "title": "Lavar as mãos",
+            "step": [
+                {
+                    "title": "Molhe as mãos com água",
+                    "subTitle": ""
+                },
+                {
+                    "title": "Espalhe o sabonete",
+                    "subTitle": "Passe o sabonete por toda a superfície da mão"
+                },
+                {
+                    "title": "Ensaboar",
+                    "subTitle": "Ensaboe as palmas das mãos friccionando-as entre si"
+                },
+                {
+                    "title": "Esfregar",
+                    "subTitle": "Esfregue a palma da mão direita contra o dorso da mão esquerda, entrelaçando os dedos"
+                },
+                {
+                    "title": "Esfregar outra mão",
+                    "subTitle": "Repita o processo anterior com a mão esquerda contra o dorso da mão direita"
+                },
+                {
+                    "title": "Entre os dedos",
+                    "subTitle": "Entrelace os dedos e friccione os espaços entre eles"
+                },
+                {
+                    "title": "Ponta dos dedos",
+                    "subTitle": "Esfregue o dorso dos dedos de uma mão com a palma da mão oposta (e vice-versa), segurando os dedos, com movimento de vai-e-vem"
+                },
+                {
+                    "title": "Polegares",
+                    "subTitle": "Esfregue os polegares com o auxílio da palma da mão oposta, utilizando movimento circular"
+                },
+                {
+                    "title": "Concha",
+                    "subTitle": "Friccione as polpas digitais e unhas de uma mão contra a palma da mão oposta, fechada em concha e fazendo movimento circular"
+                },
+                {
+                    "title": "Enxágue",
+                    "subTitle": "Enxágue primeiro os punhos"
+                },
+                {
+                    "title": "Enxágue",
+                    "subTitle": "Enxágue, agora, as mãos, evitando contato direto da mão ensaboada com a torneira (procure usar os cotovelos na hora de abrir)"
+                },
+                {
+                    "title": "Secagem",
+                    "subTitle": "Seque-as com uma tolha de papel descartável ou de uso único quando estiver em casa"
+                },
+                {
+                    "title": "Fechando a torneira",
+                    "subTitle": "Use a toalha de papel para fechar a torneira. Pronto! Agora suas mãos estão seguras"
+                }
+            ]
+        },
+        "brushTeeth": {
+            "title": "Escovar os dentes",
+            "step": []
+        }
+    }
+}

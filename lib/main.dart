@@ -3,7 +3,9 @@ import 'dart:async';
 import 'package:camera/camera.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'package:lavanda/Shared/appLocations.dart';
 import 'package:lavanda/constants.dart';
 import 'package:lavanda/Model/categories.dart';
 import 'package:lavanda/loginScreen.dart';
@@ -33,6 +35,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('pt'), // BRASILEIRO
+        Locale('en'), // English
+        Locale('es'), // Spanish
+      ],
       debugShowCheckedModeBanner: false,
       title: 'Lavanda',
       theme: ThemeData(

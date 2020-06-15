@@ -22,9 +22,12 @@ Future<User> login(String email, String password) async {
     // Se o registro funcionou, cria o usuario local.
     print("Status code 200");
     return User(
-        email: email,
-        password: password,
-        name: json.decode(response.body)['name']);
+      email: email,
+      password: password,
+      name: json.decode(response.body)['name'],
+      image: json.decode(response.body)['image'],
+      imageUrl: json.decode(response.body)['image_url'],
+    );
   } else {
     // Caso contrário, lança erro.
     throw Exception('Failed to load post');

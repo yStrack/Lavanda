@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:camera/camera.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:lavanda/Shared/appLocalization.dart';
 
 import 'package:lavanda/constants.dart';
 import 'package:lavanda/Model/categories.dart';
@@ -43,6 +45,20 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
+      supportedLocales: [Locale('pt', 'BR'), Locale('en', 'US')],
+      localizationsDelegates: [
+        AppLocalization.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate
+      ],
+      // localeResolutionCallback: (locale, supportedLocales) {
+      //   for (var local in supportedLocales) {
+      //     if (local.languageCode == locale.languageCode) {
+      //       return local;
+      //     }
+      //   }
+      //   return supportedLocales.first;
+      // },
       home: LoginScreen(),
     );
   }

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lavanda/Services/auth.service.dart';
 import 'package:lavanda/constants.dart';
 import 'package:lavanda/main.dart';
 import 'package:lavanda/registerScreen.dart';
 import 'package:provider/provider.dart';
-
-import 'Model/user.dart';
 import 'Services/userProvider.dart';
 import 'Widgets/progress.dart';
+
+import 'package:lavanda/Shared/appTranslate.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -27,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Email',
+          AppTranslate(context).text("email"),
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -43,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.email, color: Colors.white),
-                hintText: 'Coloque seu email',
+                hintText: AppTranslate(context).text("emailTip"),
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -56,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Senha',
+          AppTranslate(context).text("pass"),
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -72,7 +71,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
-                hintText: 'Coloque sua senha',
+                hintText: AppTranslate(context).text("passTip"),
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -97,7 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   });
                 }),
           ),
-          Text('Lembrar', style: kLabelSmallStyle)
+          Text(AppTranslate(context).text("rememberMe"),
+              style: kLabelSmallStyle)
         ],
       ),
     );
@@ -109,33 +109,9 @@ class _LoginScreenState extends State<LoginScreen> {
       child: FlatButton(
           onPressed: () => print('Esqueceu a sennha clicado'),
           child: Text(
-            'Esqueceu a senha?',
+            AppTranslate(context).text("forgetPassword"),
             style: kLabelSmallStyle,
           )),
-    );
-  }
-
-  Widget loginBT() {
-    return Container(
-      padding: EdgeInsets.symmetric(vertical: 25.0),
-      width: double.infinity,
-      child: RaisedButton(
-        elevation: 5.0,
-        onPressed: () async {
-          print('Login clicado');
-        },
-        padding: EdgeInsets.all(15.0),
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0)),
-        color: Colors.white,
-        child: Text('Entrar',
-            style: TextStyle(
-                color: kPrimary300Color,
-                letterSpacing: 1.5,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Poppins')),
-      ),
     );
   }
 
@@ -144,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          'Não possui uma conta?',
+          AppTranslate(context).text("dontHaveAccount"),
           style: TextStyle(
               height: 0,
               color: Colors.white,
@@ -159,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
               MaterialPageRoute(builder: (context) => RegisterScreen()),
             );
           },
-          child: Text('Crie uma',
+          child: Text(AppTranslate(context).text("signUp"),
               style: TextStyle(
                   height: 0,
                   color: Colors.white,
@@ -239,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)),
                               color: Colors.white,
-                              child: Text('Entrar',
+                              child: Text(AppTranslate(context).text("signIn"),
                                   style: TextStyle(
                                       color: kPrimary300Color,
                                       letterSpacing: 1.5,

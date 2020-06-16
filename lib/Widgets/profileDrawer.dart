@@ -1,3 +1,4 @@
+import 'package:lavanda/Shared/appTranslate.dart';
 import 'package:lavanda/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:lavanda/Shared/camera.dart';
@@ -61,7 +62,7 @@ class ProfileDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.account_circle),
-            title: Text('Nome',
+            title: Text(AppTranslate(context).text("name"),
                 style: kTitleTextstyle.copyWith(
                     fontFamily: 'Poppins', fontSize: 16)),
             subtitle: Text(
@@ -71,7 +72,7 @@ class ProfileDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.mail),
-            title: Text('Email',
+            title: Text(AppTranslate(context).text("email"),
                 style: kTitleTextstyle.copyWith(
                     fontFamily: 'Poppins', fontSize: 16)),
             subtitle: Text(
@@ -81,7 +82,7 @@ class ProfileDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.lock),
-            title: Text('Senha',
+            title: Text(AppTranslate(context).text("pass"),
                 style: kTitleTextstyle.copyWith(
                     fontFamily: 'Poppins', fontSize: 16)),
             subtitle: Text(
@@ -91,11 +92,11 @@ class ProfileDrawer extends StatelessWidget {
           ),
           ListTile(
               leading: Icon(Icons.location_on),
-              title: Text('Localização',
+              title: Text(AppTranslate(context).text("location"),
                   style: kTitleTextstyle.copyWith(
                       fontFamily: 'Poppins', fontSize: 16)),
               subtitle: Text(
-                'Sua residência',
+                AppTranslate(context).text("locationTip"),
                 style: TextStyle(fontFamily: 'Poppins'),
               ),
               trailing: Icon(Icons.edit)),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lavanda/Model/categories.dart';
 import 'package:lavanda/constants.dart';
+import 'Shared/appTranslate.dart';
 import 'Widgets/clipper.dart';
 
 class ActivityScreen extends StatefulWidget {
@@ -47,12 +48,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                         child: Stack(children: <Widget>[
                       Positioned(
                           left: 0,
-                          child: Text("${widget.category.name}",
+                          child: Text(
+                              AppTranslate(context)
+                                  .text("${widget.category.name}"),
                               style: kHeadingTextStyle.copyWith(
                                   color: Colors.white, fontFamily: "Poppins"))),
                       Positioned(
                           top: 40,
-                          child: Text("Aprenda mais sobre a atividade!",
+                          child: Text(AppTranslate(context).text("learnMore"),
                               style: kLabelBoldStyle.copyWith(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -69,7 +72,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                     Row(
                       children: <Widget>[
                         Text(
-                          "Procedimentos",
+                          AppTranslate(context).text("procedures"),
                           style: kCuidadosTitleTextstyle,
                         )
                       ],
@@ -83,11 +86,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-01.png",
                               height: 100,
                             ),
-                            title: Text('Molhe as mãos com água',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title1"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              '',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle1"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -98,11 +104,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-02.png",
                               height: 100,
                             ),
-                            title: Text('Espalhe o sabonete',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title2"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Passe o sabonete por toda a superfície da mão',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle2"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -113,11 +122,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-03.png",
                               height: 100,
                             ),
-                            title: Text('Ensaboar',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title3"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Ensaboe as palmas das mãos friccionando-as entre si',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle3"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -128,11 +140,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-04.png",
                               height: 100,
                             ),
-                            title: Text('Esfregar',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title4"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Esfregue a palma da mão direita contra o dorso da mão esquerda, entrelaçando os dedos',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle4"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -143,11 +158,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-05.png",
                               height: 100,
                             ),
-                            title: Text('Esfregar outra mão',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title5"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Repita o processo anterior com a mão esquerda contra o dorso da mão direita',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle5"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -158,11 +176,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-06.png",
                               height: 100,
                             ),
-                            title: Text('Entre os dedos',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title6"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Entrelace os dedos e friccione os espaços entre eles',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle6"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -173,11 +194,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-07.png",
                               height: 100,
                             ),
-                            title: Text('Ponta dos dedos',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title7"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Esfregue o dorso dos dedos de uma mão com a palma da mão oposta (e vice-versa), segurando os dedos, com movimento de vai-e-vem',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle7"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -188,11 +212,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-08.png",
                               height: 100,
                             ),
-                            title: Text('Polegares',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title8"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Esfregue os polegares com o auxílio da palma da mão oposta, utilizando movimento circular',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle8"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -203,11 +230,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-09.png",
                               height: 100,
                             ),
-                            title: Text('Concha',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title9"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Friccione as polpas digitais e unhas de uma mão contra a palma da mão oposta, fechada em concha e fazendo movimento circular',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle9"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -218,11 +248,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-10.png",
                               height: 100,
                             ),
-                            title: Text('Exague',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title10"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Enxágue primeiro os punhos',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle10"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -233,11 +266,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-11.png",
                               height: 100,
                             ),
-                            title: Text('Exague',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title11"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Enxágue, agora, as mãos, evitando contato direto da mão ensaboada com a torneira (procure usar os cotovelos na hora de abrir)',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle11"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -248,11 +284,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-12.png",
                               height: 100,
                             ),
-                            title: Text('Secagem',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title12"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Seque-as com uma tolha de papel descartável ou de uso único quando estiver em casa',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle12"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),
@@ -263,11 +302,14 @@ class _ActivityScreenState extends State<ActivityScreen> {
                               "assets/images/maos-13.png",
                               height: 100,
                             ),
-                            title: Text('Fechando a torneira',
+                            title: Text(
+                                AppTranslate(context).text(
+                                    "${widget.category.name[0]}" + "title13"),
                                 style: kTitleTextstyle.copyWith(
                                     fontFamily: 'Poppins', fontSize: 16)),
                             subtitle: Text(
-                              'Use a toalha de papel para fechar a torneira. Pronto! Agora suas mãos estão seguras',
+                              AppTranslate(context).text(
+                                  "${widget.category.name[0]}" + "subTitle13"),
                               style: TextStyle(fontFamily: 'Poppins'),
                             ),
                           ),

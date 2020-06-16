@@ -14,21 +14,23 @@ import 'package:lavanda/Widgets/cuidadosCard.dart';
 import 'package:lavanda/Widgets/clipper.dart';
 import 'package:lavanda/Widgets/profileDrawer.dart';
 
-Future<void> main() async {
-  // Ensure that plugin services are initialized so that `availableCameras()`
-  // can be called before `runApp()`
-  WidgetsFlutterBinding.ensureInitialized();
+import 'Shared/appTranslate.dart';
 
-  // Obtain a list of the available cameras on the device.
-  final cameras = await availableCameras();
+// Future<void> main() async {
+//   // Ensure that plugin services are initialized so that `availableCameras()`
+//   // can be called before `runApp()`
+//   WidgetsFlutterBinding.ensureInitialized();
 
-  // Get a specific camera from the list of available cameras.
-  camera = cameras.last;
+//   // Obtain a list of the available cameras on the device.
+//   final cameras = await availableCameras();
 
-  runApp(MyApp());
-}
+//   // Get a specific camera from the list of available cameras.
+//   camera = cameras.last;
 
-// void main() => runApp(MyApp());
+//   runApp(MyApp());
+// }
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      supportedLocales: [Locale('pt', 'BR'), Locale('en', 'US')],
+      supportedLocales: [Locale('pt'), Locale('en')],
       localizationsDelegates: [
         AppLocalization.delegate,
         GlobalMaterialLocalizations.delegate,
@@ -108,12 +110,15 @@ class _HomePageState extends State<HomePage> {
                       child: Stack(children: <Widget>[
                     Positioned(
                         left: 0,
-                        child: Text('Olá ${widget.username},',
+                        child: Text(
+                            AppTranslate(context).text("hello") +
+                                ' ${widget.username},',
                             style: kHeadingTextStyle.copyWith(
                                 color: Colors.white))),
                     Positioned(
                         top: 40,
-                        child: Text('A hora de se cuidar é agora!',
+                        child: Text(
+                            AppTranslate(context).text("timeToTakeCareIsNow"),
                             style: kSubHeadingTextStyle.copyWith(
                                 color: Colors.white)))
                   ]))
@@ -126,7 +131,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: <Widget>[
                 Text(
-                  'Cuidados',
+                  AppTranslate(context).text("cares"),
                   style: kCuidadosTitleTextstyle,
                 )
               ],
@@ -173,7 +178,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: <Widget>[
                 Text(
-                  'Atividades pessoais',
+                  AppTranslate(context).text("personalActivities"),
                   style: kCuidadosTitleTextstyle,
                 )
               ],

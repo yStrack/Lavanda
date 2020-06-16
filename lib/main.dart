@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             body1: TextStyle(color: kBodyTextColor),
           )),
-      supportedLocales: [Locale('pt'), Locale('en')],
+      supportedLocales: [Locale('pt'), Locale('en'), Locale('es')],
       localizationsDelegates: [
         AppLocalization.delegate,
         GlobalMaterialLocalizations.delegate,

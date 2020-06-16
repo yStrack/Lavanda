@@ -6,6 +6,7 @@
 	<array>
 		<string>Portuguese</string>
 		<string>en</string>
+		<string>Spanish</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

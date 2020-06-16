@@ -20,7 +20,7 @@ List<Category> categories = categoriesData
 
 var categoriesData = [
   {"name": "washHands", 'image': "assets/images/maos-01.png"},
-  {"name": "brushTeeth", 'image': "assets/images/aglomeracao.png"},
+  {"name": "brushTeeth", 'image': "assets/images/dente.png"},
 ];
 
 var proceduresData = [];

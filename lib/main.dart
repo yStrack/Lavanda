@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:camera/camera.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:lavanda/Shared/appLocalization.dart';
 
@@ -13,13 +15,54 @@ import 'package:lavanda/Widgets/activityCard.dart';
 import 'package:lavanda/Widgets/cuidadosCard.dart';
 import 'package:lavanda/Widgets/clipper.dart';
 import 'package:lavanda/Widgets/profileDrawer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:location_permissions/location_permissions.dart';
 
 import 'Shared/appTranslate.dart';
 
+List getLocations(prefs) {
+  var storedValue = prefs.getString('locations');
+  if (storedValue == null) {
+    storedValue = jsonEncode([]);
+  }
+  var locations = jsonDecode(storedValue);
+  return locations;
+}
+
 Future<void> main() async {
-  // Ensure that plugin services are initialized so that `availableCameras()`
+  bool callbackLocation = false;
   // can be called before `runApp()`
   WidgetsFlutterBinding.ensureInitialized();
+
+  PermissionStatus currPermission =
+      await LocationPermissions().checkPermissionStatus();
+  if (currPermission != PermissionStatus.granted) {
+    await LocationPermissions().requestPermissions();
+  }
+  ServiceStatus serviceStatus =
+      await LocationPermissions().checkServiceStatus();
+  if (serviceStatus == ServiceStatus.enabled) {
+    const MethodChannel _channel = const MethodChannel('geolocation_plugin');
+    _channel.setMethodCallHandler((MethodCall call) async {
+      print(call.method);
+      if (call.method == "callbackLocation") {
+        callbackLocation = true;
+
+        var lat = call.arguments.split(',')[0];
+        var lon = call.arguments.split(',')[1];
+        var vel = call.arguments.split(',')[2];
+        var isRunningInBackground = call.arguments.split(',')[3];
+
+        if (isRunningInBackground == "true") {
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          List locations = getLocations(prefs);
+          locations.add({'lat': lat, 'lon': lon});
+          prefs.setString('locations', jsonEncode(locations));
+        }
+      }
+    });
+  }
 
   // Obtain a list of the available cameras on the device.
   final cameras = await availableCameras();
@@ -27,15 +70,24 @@ Future<void> main() async {
   // Get a specific camera from the list of available cameras.
   camera = cameras.last;
 
-  runApp(MyApp());
+  runApp(MyApp(
+    callbackLocation: callbackLocation,
+  ));
 }
 
 // void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  bool callbackLocation = false;
+
+  MyApp({this.callbackLocation});
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    if (callbackLocation) {
+      return SizedBox();
+    }
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Lavanda',

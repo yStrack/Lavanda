@@ -16,21 +16,21 @@ import 'package:lavanda/Widgets/profileDrawer.dart';
 
 import 'Shared/appTranslate.dart';
 
-// Future<void> main() async {
-//   // Ensure that plugin services are initialized so that `availableCameras()`
-//   // can be called before `runApp()`
-//   WidgetsFlutterBinding.ensureInitialized();
+Future<void> main() async {
+  // Ensure that plugin services are initialized so that `availableCameras()`
+  // can be called before `runApp()`
+  WidgetsFlutterBinding.ensureInitialized();
 
-//   // Obtain a list of the available cameras on the device.
-//   final cameras = await availableCameras();
+  // Obtain a list of the available cameras on the device.
+  final cameras = await availableCameras();
 
-//   // Get a specific camera from the list of available cameras.
-//   camera = cameras.last;
+  // Get a specific camera from the list of available cameras.
+  camera = cameras.last;
 
-//   runApp(MyApp());
-// }
+  runApp(MyApp());
+}
 
-void main() => runApp(MyApp());
+// void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

@@ -24,17 +24,17 @@ class ProfileDrawer extends StatelessWidget {
             child: Center(
               child: AspectRatio(
                 aspectRatio: 1 / 1,
-                child: Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: user.imageUrl != 'null'
-                            ? NetworkImage(user.imageUrl)
-                            : NetworkImage(
-                                'https://sumaleeboxinggym.com/wp-content/uploads/2018/06/Generic-Profile-1600x1600.png')),
+                child: Stack(children: [
+                  AspectRatio(
+                    aspectRatio: 1 / 1,
+                    child: ClipOval(
+                      child: FadeInImage(
+                          image: NetworkImage(user.imageUrl),
+                          placeholder: AssetImage('assets/images/profile.png'),
+                          fit: BoxFit.cover),
+                    ),
                   ),
-                  child: Align(
+                  Align(
                     alignment: Alignment.bottomRight,
                     child: Container(
                       decoration: const ShapeDecoration(
@@ -56,7 +56,7 @@ class ProfileDrawer extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
+                ]),
               ),
             ),
           ),
@@ -86,7 +86,7 @@ class ProfileDrawer extends StatelessWidget {
                 style: kTitleTextstyle.copyWith(
                     fontFamily: 'Poppins', fontSize: 16)),
             subtitle: Text(
-              '****',
+              '*' * user.password.length,
               style: TextStyle(fontFamily: 'Poppins'),
             ),
           ),

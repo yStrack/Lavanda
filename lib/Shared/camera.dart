@@ -134,6 +134,7 @@ class DisplayPictureScreen extends StatelessWidget {
               Navigator.pop(context);
             } else {
               // Erro ao salvar imagem
+              print("Erro ao salvar imagem");
             }
           },
         ));

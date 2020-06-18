@@ -4,7 +4,7 @@ class User {
   final String name;
   final String image;
   final String imageUrl;
-  final String location;
+  final List location;
 
   User(
       {this.email,

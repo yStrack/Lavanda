@@ -19,14 +19,16 @@ Future<User> login(String email, String password) async {
   );
 
   if (response.statusCode == 200) {
+    Map body = json.decode(response.body);
     // Se o registro funcionou, cria o usuario local.
     print("Status code 200");
     return User(
       email: email,
       password: password,
-      name: json.decode(response.body)['name'],
-      image: json.decode(response.body)['image'],
-      imageUrl: json.decode(response.body)['image_url'],
+      name: body['name'],
+      image: body['image'],
+      imageUrl: body['image_url'],
+      location: body['location']['coordinates'],
     );
   } else {
     // Caso contrário, lança erro.

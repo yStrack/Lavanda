@@ -6,7 +6,7 @@ class AppTranslate {
 
   AppTranslate(this.context);
 
-  String text(String key) {
+  String text(List key) {
     return AppLocalization.of(context).translate(key);
   }
 }

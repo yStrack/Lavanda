@@ -7,6 +7,7 @@ class ProfileDrawer extends StatelessWidget {
   // final String image;
   final String name;
   final String username;
+
   const ProfileDrawer({
     Key key,
     // this.image,
@@ -16,6 +17,12 @@ class ProfileDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var prof = {
+      "name": Icons.account_circle,
+      "email": Icons.mail,
+      "password": Icons.lock,
+      "location": Icons.location_on,
+    };
     return Drawer(
       child: ListView(
         children: <Widget>[
@@ -60,46 +67,20 @@ class ProfileDrawer extends StatelessWidget {
               ),
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text(AppTranslate(context).text("name"),
-                style: kTitleTextstyle.copyWith(
-                    fontFamily: 'Poppins', fontSize: 16)),
-            subtitle: Text(
-              '${user.name}',
-              style: TextStyle(fontFamily: 'Poppins'),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.mail),
-            title: Text(AppTranslate(context).text("email"),
-                style: kTitleTextstyle.copyWith(
-                    fontFamily: 'Poppins', fontSize: 16)),
-            subtitle: Text(
-              '${user.email}',
-              style: TextStyle(fontFamily: 'Poppins'),
-            ),
-          ),
-          ListTile(
-            leading: Icon(Icons.lock),
-            title: Text(AppTranslate(context).text("pass"),
-                style: kTitleTextstyle.copyWith(
-                    fontFamily: 'Poppins', fontSize: 16)),
-            subtitle: Text(
-              '*' * user.password.length,
-              style: TextStyle(fontFamily: 'Poppins'),
-            ),
-          ),
-          ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text(AppTranslate(context).text("location"),
+          for (var key in prof.keys)
+            ListTile(
+              leading: Icon(prof[key]),
+              title: Text(AppTranslate(context).text(["profile", key, "title"]),
                   style: kTitleTextstyle.copyWith(
                       fontFamily: 'Poppins', fontSize: 16)),
               subtitle: Text(
-                AppTranslate(context).text("locationTip"),
+                key == 'password'
+                    ? '*' * user.password.length
+                    : '${user.toMap()[key]}',
                 style: TextStyle(fontFamily: 'Poppins'),
               ),
-              trailing: Icon(Icons.edit)),
+              trailing: key == 'location' ? Icon(Icons.edit) : null,
+            ),
         ],
       ),
     );

@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          AppTranslate(context).text("email"),
+          AppTranslate(context).text(["profile", "email", "title"]),
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -42,7 +42,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.email, color: Colors.white),
-                hintText: AppTranslate(context).text("emailTip"),
+                hintText:
+                    AppTranslate(context).text(["profile", "email", "tooltip"]),
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -55,7 +56,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          AppTranslate(context).text("pass"),
+          AppTranslate(context).text(["profile", "password", "title"]),
           style: kLabelBoldStyle,
         ),
         SizedBox(height: 10),
@@ -71,7 +72,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 border: InputBorder.none,
                 contentPadding: EdgeInsets.only(top: 14.0),
                 prefixIcon: Icon(Icons.lock, color: Colors.white),
-                hintText: AppTranslate(context).text("passTip"),
+                hintText: AppTranslate(context)
+                    .text(["profile", "password", "tooltip"]),
                 hintStyle: kHintTextStyle),
           ),
         )
@@ -96,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   });
                 }),
           ),
-          Text(AppTranslate(context).text("rememberMe"),
+          Text(AppTranslate(context).text(["label", "rememberMe"]),
               style: kLabelSmallStyle)
         ],
       ),
@@ -109,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: FlatButton(
           onPressed: () => print('Esqueceu a sennha clicado'),
           child: Text(
-            AppTranslate(context).text("forgetPassword"),
+            AppTranslate(context).text(["button", "forgetPassword"]),
             style: kLabelSmallStyle,
           )),
     );
@@ -120,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          AppTranslate(context).text("dontHaveAccount"),
+          AppTranslate(context).text(["label", "dontHaveAccount"]),
           style: TextStyle(
               height: 0,
               color: Colors.white,
@@ -135,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
               MaterialPageRoute(builder: (context) => RegisterScreen()),
             );
           },
-          child: Text(AppTranslate(context).text("signUp"),
+          child: Text(AppTranslate(context).text(["button", "signUp"]),
               style: TextStyle(
                   height: 0,
                   color: Colors.white,
@@ -215,7 +217,9 @@ class _LoginScreenState extends State<LoginScreen> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0)),
                               color: Colors.white,
-                              child: Text(AppTranslate(context).text("signIn"),
+                              child: Text(
+                                  AppTranslate(context)
+                                      .text(["button", "signIn"]),
                                   style: TextStyle(
                                       color: kPrimary300Color,
                                       letterSpacing: 1.5,

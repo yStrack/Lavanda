@@ -4,13 +4,11 @@ import 'package:lavanda/constants.dart';
 import 'package:flutter/material.dart';
 
 class ActivityCard extends StatelessWidget {
-  final String image;
-  final String name;
+  final Category category;
   final String username;
   const ActivityCard({
     Key key,
-    this.image,
-    this.name,
+    this.category,
     this.username,
   }) : super(key: key);
 
@@ -30,7 +28,7 @@ class ActivityCard extends StatelessWidget {
                   offset: Offset(0, 8), blurRadius: 20, color: kTextLightColor)
             ],
             image: DecorationImage(
-              image: AssetImage(image),
+              image: AssetImage(category.image),
               // fit: BoxFit.fill,
             )),
         child: FlatButton(
@@ -38,10 +36,7 @@ class ActivityCard extends StatelessWidget {
             print('Clicou no ActivityCard');
             Navigator.of(context).push(MaterialPageRoute(
                 builder: (BuildContext context) =>
-                    ActivityScreen(Category(this.name, this.image), 'test')));
-            // MaterialPageRoute(
-            //     builder: (context) =>
-            //         ActivityScreen(Category(name, image), 'test'));
+                    ActivityScreen(category, 'test')));
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

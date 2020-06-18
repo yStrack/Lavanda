@@ -53,8 +53,9 @@ class TakePictureScreenState extends State<TakePictureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          AppBar(title: Text(AppTranslate(context).text("takeProfilePicture"))),
+      appBar: AppBar(
+          title: Text(
+              AppTranslate(context).text(["label", "takeProfilePicture"]))),
       // Wait until the controller is initialized before displaying the
       // camera preview. Use a FutureBuilder to display a loading spinner
       // until the controller has finished initializing.
@@ -118,8 +119,9 @@ class DisplayPictureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            AppBar(title: Text(AppTranslate(context).text("wantSavePicture"))),
+        appBar: AppBar(
+            title:
+                Text(AppTranslate(context).text(["label", "wantSavePicture"]))),
         // The image is stored as a file on the device. Use the `Image.file`
         // constructor with the given path to display the image.
         body: Center(child: Container(child: Image.file(File(imagePath)))),

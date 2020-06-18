@@ -1,63 +1,126 @@
 {
-  "hello": "Olá",
-  "timeToTakeCareIsNow": "A hora de se cuidar é agora!",
-  "personalActivities": "Atividades pessoais",
-  "cares": "Cuidados",
-  "rememberMe": "Lembrar",
-  "takeProfilePicture": "Tire uma foto para o perfil",
-  "wantSavePicture": "Quer salvar a foto?",
-  "learnMore": "Aprenda mais sobre a atividade!",
-  "dontHaveAccount": "Não possui uma conta?",
-  "name": "Nome",
-  "nameTip": "Coloque seu nome",
-  "email": "Email",
-  "emailTip": "Coloque seu email",
-  "pass": "Senha",
-  "confirmPass": "Confirmar Senha",
-  "passTip": "Coloque sua senha",
-  "location": "Localização",
-  "locationTip": "Sua residência",
-  "register": "Registrar",
-  "signUp": "Crie uma",
-  "signIn": "Entrar",
-  "forgetPassword": "Esqueceu a senha?",
-  "washHands": "Lavar as mãos",
-  "brushTeeth": "Escovar os dentes",
-  "procedures": "Procedimentos",
-  "wtitle1": "Molhe as mãos com água",
-  "wsubTitle1": "",
-  "wtitle2": "Espalhe o sabonete",
-  "wsubTitle2": "Passe o sabonete por toda a superfície da mão",
-  "wtitle3": "Ensaboar",
-  "wsubTitle3": "Ensaboe as palmas das mãos friccionando-as entre si",
-  "wtitle4": "Esfregar",
-  "wsubTitle4": "Esfregue a palma da mão direita contra o dorso da mão esquerda, entrelaçando os dedos",
-  "wtitle5": "Esfregar outra mão",
-  "wsubTitle5": "Repita o processo anterior com a mão esquerda contra o dorso da mão direita",
-  "wtitle6": "Entre os dedos",
-  "wsubTitle6": "Entrelace os dedos e friccione os espaços entre eles",
-  "wtitle7": "Ponta dos dedos",
-  "wsubTitle7": "Esfregue o dorso dos dedos de uma mão com a palma da mão oposta (e vice-versa), segurando os dedos, com movimento de vai-e-vem",
-  "wtitle8": "Polegares",
-  "wsubTitle8": "Esfregue os polegares com o auxílio da palma da mão oposta, utilizando movimento circular",
-  "wtitle9": "Concha",
-  "wsubTitle9": "Friccione as polpas digitais e unhas de uma mão contra a palma da mão oposta, fechada em concha e fazendo movimento circular",
-  "wtitle10": "Enxágue",
-  "wsubTitle10": "Enxágue primeiro os punhos",
-  "wtitle11": "Enxágue",
-  "wsubTitle11": "Enxágue, agora, as mãos, evitando contato direto da mão ensaboada com a torneira (procure usar os cotovelos na hora de abrir)",
-  "wtitle12": "Secagem",
-  "wsubTitle12": "Seque-as com uma tolha de papel descartável ou de uso único quando estiver em casa",
-  "wtitle13": "Fechando a torneira",
-  "wsubTitle13": "Use a toalha de papel para fechar a torneira. Pronto! Agora suas mãos estão seguras",
-  "btitle1": "Pasta de dente",
-  "bsubTitle1": "Esprema uma pasta do tamanho de uma ervilha em uma escova de cerdas macias",
-  "btitle2": "Movimento",
-  "bsubTitle2": "Escove suavemente usando movimentos circulares. Se você escova demais, pode prejudicar suas gengivas",
-  "btitle3": "Todas as partes",
-  "bsubTitle3": "Escove todas as superfícies dos dentes, prestando atenção espacial para onde o dente encontra a gengiva. É aqui que o local se acumula",
-  "btitle4": "Atrás",
-  "bsubTitle4": "Lembre-se de escovar atrás dos dentes da frente usando a ponta da escova",
-  "btitle5": "Tempo",
-  "bsubTitle5": "Continue escovando por pelo menos dois minutos e faça isso de manhã e à noite"
+  "label": {
+    "hello": "Olá",
+    "timeToTakeCareIsNow": "A hora de se cuidar é agora!",
+    "personalActivities": "Atividades pessoais",
+    "cares": "Cuidados",
+    "rememberMe": "Lembrar",
+    "takeProfilePicture": "Tire uma foto para o perfil",
+    "wantSavePicture": "Quer salvar a foto?",
+    "learnMore": "Aprenda mais sobre a atividade!",
+    "dontHaveAccount": "Não possui uma conta?",
+    "procedures": "Procedimentos"
+  },
+  "profile": {
+    "name": {
+      "title": "Nome",
+      "tooltip": "Coloque seu nome"
+    },
+    "email": {
+      "title": "Email",
+      "tooltip": "Coloque seu email"
+    },
+    "password": {
+      "title": "Senha",
+      "tooltip": "Coloque seu senha"
+    },
+    "confirmPassword": {
+      "title": "Confirmar Senha",
+      "tooltip": "Coloque seu senha"
+    },
+    "location": {
+      "title": "Localização",
+      "tooltip": "Sua residência"
+    }
+  },
+  "button": {
+    "register": "Registrar",
+    "signUp": "Crie uma",
+    "signIn": "Entrar",
+    "forgetPassword": "Esqueceu a senha?"
+  },
+  "activities": {
+    "washHands": {
+      "title": "Lavar as mãos",
+      "step": [
+        {
+          "title": "Molhe as mãos com água",
+          "subTitle": ""
+        },
+        {
+          "title": "Espalhe o sabonete",
+          "subTitle": "Passe o sabonete por toda a superfície da mão"
+        },
+        {
+          "title": "Ensaboar",
+          "subTitle": "Ensaboe as palmas das mãos friccionando-as entre si"
+        },
+        {
+          "title": "Esfregar",
+          "subTitle": "Esfregue a palma da mão direita contra o dorso da mão esquerda, entrelaçando os dedos"
+        },
+        {
+          "title": "Esfregar outra mão",
+          "subTitle": "Repita o processo anterior com a mão esquerda contra o dorso da mão direita"
+        },
+        {
+          "title": "Entre os dedos",
+          "subTitle": "Entrelace os dedos e friccione os espaços entre eles"
+        },
+        {
+          "title": "Ponta dos dedos",
+          "subTitle": "Esfregue o dorso dos dedos de uma mão com a palma da mão oposta (e vice-versa), segurando os dedos, com movimento de vai-e-vem"
+        },
+        {
+          "title": "Polegares",
+          "subTitle": "Esfregue os polegares com o auxílio da palma da mão oposta, utilizando movimento circular"
+        },
+        {
+          "title": "Concha",
+          "subTitle": "Friccione as polpas digitais e unhas de uma mão contra a palma da mão oposta, fechada em concha e fazendo movimento circular"
+        },
+        {
+          "title": "Enxágue",
+          "subTitle": "Enxágue primeiro os punhos"
+        },
+        {
+          "title": "Enxágue",
+          "subTitle": "Enxágue, agora, as mãos, evitando contato direto da mão ensaboada com a torneira (procure usar os cotovelos na hora de abrir)"
+        },
+        {
+          "title": "Secagem",
+          "subTitle": "Seque-as com uma tolha de papel descartável ou de uso único quando estiver em casa"
+        },
+        {
+          "title": "Fechando a torneira",
+          "subTitle": "Use a toalha de papel para fechar a torneira. Pronto! Agora suas mãos estão seguras"
+        }
+      ]
+    },
+    "brushTeeth": {
+      "title": "Escovar os dentes",
+      "step": [
+        {
+          "title": "Pasta de dente",
+          "subTitle": "Esprema uma pasta do tamanho de uma ervilha em uma escova de cerdas macias"
+        },
+        {
+          "title": "Movimento",
+          "subTitle": "Escove suavemente usando movimentos circulares. Se você escova demais, pode prejudicar suas gengivas"
+        },
+        {
+          "title": "Todas as partes",
+          "subTitle": "Escove todas as superfícies dos dentes, prestando atenção espacial para onde o dente encontra a gengiva. É aqui que o local se acumula"
+        },
+        {
+          "title": "Atrás",
+          "subTitle": "Lembre-se de escovar atrás dos dentes da frente usando a ponta da escova"
+        },
+        {
+          "title": "Tempo",
+          "subTitle": "Continue escovando por pelo menos dois minutos e faça isso de manhã e à noite"
+        }
+      ]
+    }
+  }
 }

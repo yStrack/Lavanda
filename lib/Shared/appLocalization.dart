@@ -9,21 +9,24 @@ class AppLocalization {
 
   AppLocalization(this.locale);
 
-  Map<String, String> _localizationStrings;
+  var _localizationStrings;
 
   Future<bool> load() async {
     String jsonString =
         await rootBundle.loadString('lang/${locale.languageCode}.json');
-    Map<String, dynamic> jsonMap = json.decode(jsonString);
-
-    _localizationStrings = jsonMap.map((key, value) {
-      return MapEntry(key, value.toString());
-    });
+    _localizationStrings = json.decode(jsonString);
     return true;
   }
 
-  String translate(String key) {
-    return _localizationStrings[key];
+  String translate(List keys) {
+    if (keys.length == 0) {
+      return '';
+    }
+    var l = _localizationStrings;
+    for (var key in keys) {
+      l = l[key];
+    }
+    return l;
   }
 
   static AppLocalization of(BuildContext context) {

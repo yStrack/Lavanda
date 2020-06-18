@@ -4,6 +4,24 @@ class User {
   final String name;
   final String image;
   final String imageUrl;
+  final String location;
 
-  User({this.email, this.password, this.name, this.image, this.imageUrl});
+  User(
+      {this.email,
+      this.password,
+      this.name,
+      this.image,
+      this.imageUrl,
+      this.location});
+
+  Map<String, dynamic> toMap() {
+    return {
+      'email': email,
+      'password': password,
+      'name': name,
+      'image': image,
+      'imageUrl': imageUrl,
+      'location': location,
+    };
+  }
 }

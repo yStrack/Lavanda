@@ -163,14 +163,15 @@ class _HomePageState extends State<HomePage> {
                     Positioned(
                         left: 0,
                         child: Text(
-                            AppTranslate(context).text("hello") +
+                            AppTranslate(context).text(["label", "hello"]) +
                                 ' ${widget.username},',
                             style: kHeadingTextStyle.copyWith(
                                 color: Colors.white))),
                     Positioned(
                         top: 40,
                         child: Text(
-                            AppTranslate(context).text("timeToTakeCareIsNow"),
+                            AppTranslate(context)
+                                .text(["label", "timeToTakeCareIsNow"]),
                             style: kSubHeadingTextStyle.copyWith(
                                 color: Colors.white)))
                   ]))
@@ -183,7 +184,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: <Widget>[
                 Text(
-                  AppTranslate(context).text("cares"),
+                  AppTranslate(context).text(["label", "cares"]),
                   style: kCuidadosTitleTextstyle,
                 )
               ],
@@ -230,7 +231,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: <Widget>[
                 Text(
-                  AppTranslate(context).text("personalActivities"),
+                  AppTranslate(context).text(["label", "personalActivities"]),
                   style: kCuidadosTitleTextstyle,
                 )
               ],
@@ -247,11 +248,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(
                         child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: ActivityCard(
-                              image: item.image,
-                              name: item.name,
-                              // isActive: true,
-                            ))),
+                            child: ActivityCard(category: item))),
                 ],
               ),
             ),

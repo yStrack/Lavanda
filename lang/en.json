@@ -1,63 +1,126 @@
 {
-  "hello": "Hello",
-  "timeToTakeCareIsNow": "The time to take care is now!",
-  "personalActivities": "Personal activities",
-  "cares": "Cares",
-  "rememberMe": "Remember me",
-  "takeProfilePicture": "Take a profile picture",
-  "wantSavePicture": "Do you want to save it?",
-  "learnMore": "Learn more about the activity",
-  "dontHaveAccount": "Don't have a account yet?",
-  "name": "Name",
-  "nameTip": "Type your name",
-  "email": "Email",
-  "emailTip": "Type your email",
-  "pass": "Password",
-  "confirmPass": "Confirm password",
-  "passTip": "Type your password",
-  "location": "Locale",
-  "locationTip": "Your address",
-  "register": "Register",
-  "signUp": "Create one",
-  "signIn": "Log in",
-  "forgetPassword": "Forgot pass?",
-  "washHands": "Wash Hands",
-  "brushTeeth": "Brush Teeth",
-  "procedures": "Procedures",
-  "wtitle1": "Wet your hands with water",
-  "wsubTitle1": "",
-  "wtitle2": "Spread the soap",
-  "wsubTitle2": "Pass the soap over the entire surface of the hand",
-  "wtitle3": "Soap",
-  "wsubTitle3": "Soak your palms by rubbing them together",
-  "wtitle4": "Rub",
-  "wsubTitle4": "Rub the palm of your right hand against the back of your left hand, interlacing your fingers",
-  "wtitle5": "Rub another hand",
-  "wsubTitle5": "Repeat the previous process with the left hand against the back of the right hand",
-  "wtitle6": "Between fingers",
-  "wsubTitle6": "Interlace your fingers and rub the spaces between them",
-  "wtitle7": "Fingertips",
-  "wsubTitle7": "Rub the back of the fingers of one hand with the palm of the opposite hand (and vice versa), holding the fingers, with a back-and-forth motion",
-  "wtitle8": "Thumbs",
-  "wsubTitle8": "Rub your thumbs with the help of the palm of the opposite hand, using a circular motion",
-  "wtitle9": "Shell",
-  "wsubTitle9": "Rub the digital pulps and nails of one hand against the opposite palm, cupped and making a circular motion",
-  "wtitle10": "Rinse",
-  "wsubTitle10": "Rinse wrists first",
-  "wtitle11": "Rinse",
-  "wsubTitle11": "Now rinse your hands, avoiding direct contact of the soapy hand with the tap (try to use your elbows when opening)",
-  "wtitle12": "Drying",
-  "wsubTitle12": "Dry them with a disposable or single-use paper towel when you're at home",
-  "wtitle13": "Turning off the tap",
-  "wsubTitle13": "Use the paper towel to turn off the tap. Ready! Now your hands are safe",
-  "btitle1": "Toothpaste",
-  "bsubTitle1": "Squeeze a pea-sized blob of toothpaste onto a soft bristled brush",
-  "btitle2": "Movement",
-  "bsubTitle2": "Brush gently using circular motions. If you brush to hard it can harm your gums",
-  "btitle3": "All the way",
-  "bsubTitle3": "Brush all the surfaces of your teeth paying spacial attention to where the tooth meets the gum. This is where place builds up",
-  "btitle4": "Behind",
-  "bsubTitle4": "Remember to brush behind your front teeth using the tip of the toothbrush",
-  "btitle5": "Time",
-  "bsubTitle5": "Keep brushing for at least two minutes and do this morning and night"
+  "label": {
+    "hello": "Hello",
+    "timeToTakeCareIsNow": "The time to take care is now!",
+    "personalActivities": "Personal activities",
+    "cares": "Cares",
+    "rememberMe": "Remember me",
+    "takeProfilePicture": "Take a profile picture",
+    "wantSavePicture": "Do you want to save it?",
+    "learnMore": "Learn more about the activity",
+    "dontHaveAccount": "Don't have a account yet?",
+    "procedures": "Procedures"
+  },
+  "profile": {
+    "name": {
+      "title": "Name",
+      "tooltip": "Type your name"
+    },
+    "email": {
+      "title": "Email",
+      "tooltip": "Type your email"
+    },
+    "password": {
+      "title": "Password",
+      "tooltip": "Type your password"
+    },
+    "confirmPassword": {
+      "title": "Confirm password",
+      "tooltip": "Type your password"
+    },
+    "location": {
+      "title": "Locale",
+      "tooltip": "Your address"
+    }
+  },
+  "button": {
+    "register": "Register",
+    "signUp": "Create one",
+    "signIn": "Log in",
+    "forgetPassword": "Forgot pass?"
+  },
+  "activities": {
+    "washHands": {
+      "title": "Wash Hands",
+      "step": [
+        {
+          "title": "Wet your hands with water",
+          "subTitle": ""
+        },
+        {
+          "title": "Spread the soap",
+          "subTitle": "Pass the soap over the entire surface of the hand"
+        },
+        {
+          "title": "Soap",
+          "subTitle": "Soak your palms by rubbing them together"
+        },
+        {
+          "title": "Rub",
+          "subTitle": "Rub the palm of your right hand against the back of your left hand, interlacing your fingers"
+        },
+        {
+          "title": "Rub another hand",
+          "subTitle": "Repeat the previous process with the left hand against the back of the right hand"
+        },
+        {
+          "title": "Between fingers",
+          "subTitle": "Interlace your fingers and rub the spaces between them"
+        },
+        {
+          "title": "Fingertips",
+          "subTitle": "Rub the back of the fingers of one hand with the palm of the opposite hand (and vice versa), holding the fingers, with a back-and-forth motion"
+        },
+        {
+          "title": "Thumbs",
+          "subTitle": "Rub your thumbs with the help of the palm of the opposite hand, using a circular motion"
+        },
+        {
+          "title": "Shell",
+          "subTitle": "Rub the digital pulps and nails of one hand against the opposite palm, cupped and making a circular motion"
+        },
+        {
+          "title": "Rinse",
+          "subTitle": "Rinse wrists first"
+        },
+        {
+          "title": "Rinse",
+          "subTitle": "Now rinse your hands, avoiding direct contact of the soapy hand with the tap (try to use your elbows when opening)"
+        },
+        {
+          "title": "Drying",
+          "subTitle": "Dry them with a disposable or single-use paper towel when you're at home"
+        },
+        {
+          "title": "Turning off the tap",
+          "subTitle": "Use the paper towel to turn off the tap. Ready! Now your hands are safe"
+        }
+      ]
+    },
+    "brushTeeth": {
+      "title": "Brush Teeth",
+      "step": [
+        {
+          "title": "Toothpaste",
+          "subTitle": "Squeeze a pea-sized blob of toothpaste onto a soft bristled brush"
+        },
+        {
+          "title": "Movement",
+          "subTitle": "Brush gently using circular motions. If you brush to hard it can harm your gums"
+        },
+        {
+          "title": "All the way",
+          "subTitle": "Brush all the surfaces of your teeth paying spacial attention to where the tooth meets the gum. This is where place builds up"
+        },
+        {
+          "title": "Behind",
+          "subTitle": "Remember to brush behind your front teeth using the tip of the toothbrush"
+        },
+        {
+          "title": "Time",
+          "subTitle": "Keep brushing for at least two minutes and do this morning and night"
+        }
+      ]
+    }
+  }
 }

@@ -2,6 +2,7 @@ import 'package:lavanda/Shared/appTranslate.dart';
 import 'package:lavanda/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:lavanda/Shared/camera.dart';
+import 'package:lavanda/maps.dart';
 
 class ProfileDrawer extends StatelessWidget {
   // final String image;
@@ -79,7 +80,16 @@ class ProfileDrawer extends StatelessWidget {
                     : '${user.toMap()[key]}',
                 style: TextStyle(fontFamily: 'Poppins'),
               ),
-              trailing: key == 'location' ? Icon(Icons.edit) : null,
+              trailing: key == 'location'
+                  ? IconButton(
+                      icon: Icon(Icons.edit),
+                      tooltip: 'Increase volume by 10',
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (BuildContext context) => Map()));
+                      },
+                    )
+                  : null,
             ),
         ],
       ),

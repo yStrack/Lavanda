@@ -83,7 +83,6 @@ class ProfileDrawer extends StatelessWidget {
               trailing: key == 'location'
                   ? IconButton(
                       icon: Icon(Icons.edit),
-                      tooltip: 'Increase volume by 10',
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
                             builder: (BuildContext context) => Map()));

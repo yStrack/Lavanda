@@ -129,8 +129,7 @@ class DisplayPictureScreen extends StatelessWidget {
           child: Icon(Icons.save),
           // Provide an onPressed callback.
           onPressed: () async {
-            if (await updateProfile(
-                user.email, user.password, File(imagePath))) {
+            if (await updateImage(user.email, user.password, File(imagePath))) {
               // Volta pra tela de perfil
               Navigator.pop(context);
               Navigator.pop(context);

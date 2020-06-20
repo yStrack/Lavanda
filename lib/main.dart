@@ -16,8 +16,8 @@ import 'package:lavanda/Widgets/cuidadosCard.dart';
 import 'package:lavanda/Widgets/clipper.dart';
 import 'package:lavanda/Widgets/profileDrawer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:lavanda/maps.dart';
 import 'package:location_permissions/location_permissions.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 import 'Shared/appTranslate.dart';
 
@@ -128,8 +128,40 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  FlutterLocalNotificationsPlugin plugin;
+
+  @override
+  void initState() {
+    super.initState();
+    plugin = new FlutterLocalNotificationsPlugin();
+    var android = new AndroidInitializationSettings('@mipmap/ic_launcher');
+    var ios = new IOSInitializationSettings();
+    var initSetting = new InitializationSettings(android, ios);
+    plugin.initialize(initSetting, onSelectNotification: onSelectNotification);
+  }
+
+  Future onSelectNotification(String payload) {
+    debugPrint("notification payload: " + payload);
+    showDialog(
+        context: context,
+        builder: (_) => new AlertDialog(
+              title: new Text("Notification"),
+              content: new Text('$payload'),
+            ));
+  }
+
   @override
   Widget build(BuildContext context) {
+    showNotification() async {
+      var android = new AndroidNotificationDetails(
+          "channelId", "channelName", "channelDescription");
+      var ios = new IOSNotificationDetails();
+      var platform = new NotificationDetails(android, ios);
+      await plugin.show(0, "Cuide-se", "Lembre-se de lavar sua mão", platform);
+    }
+
+    showNotification();
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

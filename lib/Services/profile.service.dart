@@ -43,7 +43,7 @@ Future updateLocation(
   print(longitude);
   print(latitude);
   final response = await http.post(
-    urlPath + '/login',
+    urlPath + '/updateLocation',
     headers: <String, String>{
       'Accept': 'application/json',
       'Content-Type': 'application/json; charset=UTF-8',

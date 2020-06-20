@@ -77,7 +77,10 @@ class ProfileDrawer extends StatelessWidget {
               subtitle: Text(
                 key == 'password'
                     ? '*' * user.password.length
-                    : '${user.toMap()[key]}',
+                    : key == 'location'
+                        ? AppTranslate(context)
+                            .text(["profile", key, "tooltip"])
+                        : '${user.toMap()[key]}',
                 style: TextStyle(fontFamily: 'Poppins'),
               ),
               trailing: key == 'location'
